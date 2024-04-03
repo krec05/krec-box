@@ -1,4 +1,4 @@
-# ![image info](.\icon\KrecBoxLogo.png)
+# ![image info](icon/KrecBoxLogo.png)
 The Krec-Box is a virtual Ubuntu 22.04 machine, as a reusable development environment. How to create an own
 vagrant base box from scratch read [here](docs/CreateVagrantBaseBox.md).
 
