@@ -47,5 +47,8 @@ Set-Location $VagrantPath
 # start vagrant with provision
 vagrant up --provision
 
+# run vm gui
+vmconnect.exe (Get-ComputerInfo).CSName KrecBox
+
 Write-Host -NoNewLine 'Press any key to continue...';
 $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
