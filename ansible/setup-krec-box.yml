@@ -4,7 +4,6 @@
   strategy: debug
 
   roles:
-    - role: apt-update
     - role: apt-install-items
       packages:
         - software-properties-common
@@ -13,4 +12,6 @@
         - unzip
         - git
         - terminator
-    - role: german-keyboard
+
+
+    autologin: https://help.ubuntu.com/community/AutoLogin

@@ -2,4 +2,5 @@
 dependencies:
   - role: apt-install-items
     packages:
-      - language-pack-de
+      - tasksel
+      - lightdm
