@@ -124,5 +124,8 @@ the `ansible/roles` folder. These roles can then be included in the playbook.
 
 Documentation on Ansible can be found [here](https://docs.ansible.com/ansible/latest/user_guide/index.html).
 
+### List of Roles
+* [AutoLogin](ansible/roles/autologin/README.md)
+
 ### Troubleshooting
 [Troubleshooting](docs/trouble_shooting.md)
