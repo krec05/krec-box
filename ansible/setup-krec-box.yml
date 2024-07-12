@@ -4,14 +4,12 @@
   strategy: debug
 
   roles:
-    - role: apt-install-items
-      packages:
-        - software-properties-common
-        - vim
-        - curl
-        - unzip
-        - git
-        - terminator
-
-
-    autologin: https://help.ubuntu.com/community/AutoLogin
+#     - role: apt-install-items
+#       packages:
+#         - software-properties-common
+#         - vim
+#         - curl
+#         - unzip
+#         - git
+#         - terminator
+    - role: autologin
