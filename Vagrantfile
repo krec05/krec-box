@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
     vb.gui = true
 
     # Customize the amount of memory on the VM:
-    vb.memory = "8192"
+    vb.memory = "12288"
 
     # Change the name of the VM:
     vb.name = "KrecBox"
