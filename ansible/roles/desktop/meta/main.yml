@@ -1,6 +1,0 @@
----
-dependencies:
-  - role: apt-install-items
-    packages:
-      - tasksel
-      - lightdm
