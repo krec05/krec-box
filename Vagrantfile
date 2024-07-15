@@ -1,12 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-usr32=Fiddle::dlopen("user32")
-gsm=Fiddle::Function.new(usr32["GetSystemMetrics"],[Fiddle::TYPE_LONG],Fiddle::TYPE_LONG)
-x= gsm.call(0)
-y= gsm.call(1)
-puts x,y
-
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -77,14 +71,6 @@ Vagrant.configure("2") do |config|
   end
   # View the documentation for the provider you are using for more
   # information on available options.
-
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # Adjust screen resolution to that of the host.
-  config.vm.provision "shell", inline: <<-SHELL
-    xrandr --size #{x}x#{y}
-  SHELL
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the

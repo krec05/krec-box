@@ -13,3 +13,5 @@
 #         - git
 #         - terminator
     - role: autologin
+    - role: resize-desktop
+      resolution: 1920x1080
