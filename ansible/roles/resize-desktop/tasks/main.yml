@@ -1,3 +1,11 @@
 ---
 - name: "change desktop resolution to {{ resolution }}"
-  shell: "xrandr --size {{ resolution }}"
+  replace:
+    path: "/home/vagrant/.config/xfce4/xfconf/xfce-perchannel-xml/display.xml"
+    regexp: "name=\"Resolution\" type=\"string\" value=\".*\""
+    replace: "name=\"Resolution\" type=\"string\" value=\"{{ resolution }}\""
+
+#  shell: "xrandr --size {{ resolution }}"
+
+# unter ~/.config/xfce4/xfconf/xfce-perchannel-xml/display.xml bei beiden XML Elementen property mit name="Resolution"
+# und type="string" den Value auf 1280x1024 setzen
