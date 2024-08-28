@@ -1,7 +1,7 @@
 ---
 - name: "change desktop resolution to {{ resolution }}"
   replace:
-    path: "/home/vagrant/.config/xfce4/xfconf/xfce-perchannel-xml/display.xml"
+    path: "/home/vagrant/.config/xfce4/xfconf/xfce-perchannel-xml/displays.xml"
     regexp: "name=\"Resolution\" type=\"string\" value=\".*\""
     replace: "name=\"Resolution\" type=\"string\" value=\"{{ resolution }}\""
 
