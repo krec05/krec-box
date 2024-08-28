@@ -1,0 +1,17 @@
+---
+- name: "check chrome already is present"
+  stat:
+    path: "/usr/bin/google-chrome-stable"
+  register: installDirChrome
+
+- block:
+  - name: "download chrome"
+    get_url:
+      url: "{{ chrome_download_url }}"
+      dest: "/tmp/{{ chrome_temp_file }}"
+
+  - name: "install chrome"
+    become: yes
+    apt:
+      deb: "/tmp/{{ chrome_temp_file }}"
+  when: not installDirChrome.stat.exists

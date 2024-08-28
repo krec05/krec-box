@@ -4,14 +4,14 @@
   strategy: debug
 
   roles:
-#     - role: apt-install-items
-#       packages:
-#         - software-properties-common
-#         - vim
-#         - curl
-#         - unzip
-#         - git
-#         - terminator
+#    - role: snap-install-items
+#      packages:
+#        - software-properties-common
+#        - vim
+#        - curl
+#        - unzip
+#        - git
     - role: autologin
     - role: resize-desktop
       resolution: 1920x1080
+    - role: chrome
