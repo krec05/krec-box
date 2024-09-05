@@ -1,0 +1,20 @@
+---
+- name: "install keyboard konfiguration"
+  become: yes
+  apt:
+    name:
+      - keyboard-configuration
+      - console-setup
+    state: present
+
+- name: "write keyboard configuration"
+  become: yes
+  template:
+    src: "keyboards.j2"
+    dest: "/etc/default/keyboard"
+    force: yes
+    owner: "root"
+    group: "root"
+    mode: "u=rw,go=r"
+  notify:
+    - dpkg-reconfigure keyboard-configuration

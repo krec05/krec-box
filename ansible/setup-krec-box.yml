@@ -11,7 +11,7 @@
         - firefox
         - thunderbird
 #    - role: locale-de
-#    - role: keyboard-layout-de
+    - role: keyboard-layout-de
 #    - role: snap-install-items
 #      packages:
 #        - software-properties-common
@@ -19,7 +19,7 @@
 #        - curl
 #        - unzip
 #        - git
-    - role: autologin
-    - role: resize-desktop
-      resolution: 1920x1080
+#    - role: autologin
+#    - role: resize-desktop
+#      resolution: 1920x1080
     - role: chrome
