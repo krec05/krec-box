@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "krec/xubuntu2404-desktop"
+  config.vm.box = "gusztavvargadr/ubuntu-desktop"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "12288"
 
     # Change the name of the VM:
-    vb.name = "KrecBox"
+    vb.name = "Krec-Box"
 
     # Use VPN of host
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -78,6 +78,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get upgrade -y
+    apt-get install ansible -y
   SHELL
 
   # Enable provisioning with a shell script. Additional provisioners such as
