@@ -10,7 +10,7 @@
         - shotwell*
         - firefox
         - thunderbird
-#    - role: locale-de
+    - role: locale-de
     - role: keyboard-layout-de
 #    - role: snap-install-items
 #      packages:

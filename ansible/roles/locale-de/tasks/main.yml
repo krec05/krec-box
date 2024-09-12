@@ -1,0 +1,22 @@
+---
+- name: "ensure locales is installed"
+  become: yes
+  apt:
+    pkg: locales
+    state: latest
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+
+- name: "ensure language packages are installed"
+  become: yes
+  apt:
+    name:
+      - "language-pack-{{ locale_locales_short }}"
+      - "language-pack-{{ locale_locales_short }}-base"
+    state: "present"
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+
+- name: "ensure the system locale is configured"
+  become: yes
+  command: "localectl set-locale LANG={{ locale_locales }}"
