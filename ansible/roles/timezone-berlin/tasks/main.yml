@@ -1,0 +1,9 @@
+---
+- name: "check if timezone is set already"
+  command: "timedatectl status"
+  register: timezone_check
+
+- name: "set timezone"
+  become: yes
+  command: "timedatectl set-timezone {{ timezone_berlin }}"
+  when: not timezone_check.stdout_lines[3] is search( timezone_berlin )

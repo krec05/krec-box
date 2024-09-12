@@ -12,6 +12,7 @@
         - thunderbird
     - role: locale-de
     - role: keyboard-layout-de
+    - role: timezone-berlin
 #    - role: snap-install-items
 #      packages:
 #        - software-properties-common
