@@ -1,35 +1,14 @@
 ---
-- name: Check if autologin already installed.
-  stat:
-      path: "{{ autologin_conf_path }}"
-  register: autologin_conf
+- name: "enable auto login"
+  become: yes
+  replace:
+    path: "/etc/gdm3/custom.conf"
+    regexp: "#  AutomaticLoginEnable = true"
+    replace: "AutomaticLoginEnable = true"
 
-- block:
-    - name: Create autologin config file
-      become: true
-      file:
-          path: "{{ autologin_conf_path }}"
-          state: touch
-          owner: root
-          group: root
-          mode: 0644
-
-    - name: Write header line to autologin config file
-      become: true
-      lineinfile:
-          path: "{{ autologin_conf_path }}"
-          line: "[SeatDefaults]"
-
-    - name: Write autologin line to autologin config file
-      become: true
-      lineinfile:
-          path: "{{ autologin_conf_path }}"
-          line: "autologin-user=vagrant"
-
-    - name: Write timeout line to autologin config file
-      become: true
-      lineinfile:
-          path: "{{ autologin_conf_path }}"
-          line: "autologin-user-timeout=0"
-
-  when: not autologin_conf.stat.exists
+- name: "set vagrant to login automatically"
+  become: yes
+  replace:
+    path: "/etc/gdm3/custom.conf"
+    regexp: "#  AutomaticLogin = user1"
+    replace: "AutomaticLogin = vagrant"

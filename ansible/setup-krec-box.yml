@@ -15,6 +15,7 @@
     - role: timezone-berlin
     - role: resize-desktop
       resolution: 1920x1080
+    - role: autologin
 #    - role: snap-install-items
 #      packages:
 #        - software-properties-common
@@ -22,5 +23,4 @@
 #        - curl
 #        - unzip
 #        - git
-#    - role: autologin
     - role: chrome
