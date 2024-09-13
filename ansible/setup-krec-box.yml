@@ -16,6 +16,7 @@
     - role: resize-desktop
       resolution: 1920x1080
     - role: autologin
+    - role: disable-lock-screen
 #    - role: snap-install-items
 #      packages:
 #        - software-properties-common

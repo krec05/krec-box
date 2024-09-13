@@ -1,0 +1,4 @@
+---
+- name: "disable lock screen"
+  become: yes
+  command: "gsettings set org.gnome.desktop.session idle-delay 0"
