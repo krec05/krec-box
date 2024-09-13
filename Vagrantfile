@@ -68,6 +68,12 @@ Vagrant.configure("2") do |config|
 
     # Use VPN of host
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+
+    # Allow drag and drop bidirectional
+    vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+
+    # Allow clipboard bidirectional
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
   end
   # View the documentation for the provider you are using for more
   # information on available options.
