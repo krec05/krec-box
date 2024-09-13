@@ -1,5 +1,5 @@
 ---
-- name: "install package {{ packages }} with apt"
+- name: "uninstall package {{ packages }} with apt"
   become: yes
   apt:
     name: "{{ packages }}"

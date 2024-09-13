@@ -4,17 +4,12 @@
   strategy: debug
 
   roles:
-    - role: apt-uninstall-items
-      packages:
-        - libreoffice*
-        - shotwell*
-        - firefox
-        - thunderbird
+    - role: cleanup-apps
     - role: locale-de
     - role: keyboard-layout-de
     - role: timezone-berlin
-    - role: resize-desktop
-      resolution: 1920x1080
+#    - role: resize-desktop
+#      resolution: 1920x1080
     - role: autologin
     - role: disable-lock-screen
 #    - role: snap-install-items
@@ -24,4 +19,4 @@
 #        - curl
 #        - unzip
 #        - git
-    - role: chrome
+    - role: chrome # TODO es fehlt noch das Icon in der Taskleiste

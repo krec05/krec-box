@@ -1,0 +1,17 @@
+---
+- name: "uninstall packages with apt"
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: absent
+    autoremove: yes
+    purge: yes
+    update_cache: yes
+  loop: "{{ cleanup-apps-apt }}"
+
+- name: "uninstall packages with snap"
+  become: yes
+  snap:
+    name: "{{ item }}"
+    state: "absent"
+  loop: "{{ cleanup-apps-snap }}"

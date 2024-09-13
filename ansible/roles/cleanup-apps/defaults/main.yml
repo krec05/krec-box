@@ -1,0 +1,23 @@
+---
+# all apps to remove with apt
+cleanup-apps-apt:
+  - deja-dup*
+  - eog*
+  - file-roller
+  - gnome-calendar
+  - gnome-clocks
+  - gnome-snapshot
+  - libreoffice*
+  - remmina*
+  - rhythmbox*
+  - shotwell*
+  - simple-scan
+  - thunderbird
+  - transmission*
+  - totem*
+  - usb-creator-gtk
+
+# all apps to remove with snap
+cleanup-apps-snap:
+  - firefox
+  - thunderbird
