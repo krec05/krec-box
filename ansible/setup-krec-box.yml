@@ -13,6 +13,8 @@
     - role: locale-de
     - role: keyboard-layout-de
     - role: timezone-berlin
+    - role: resize-desktop
+      resolution: 1920x1080
 #    - role: snap-install-items
 #      packages:
 #        - software-properties-common
@@ -21,6 +23,4 @@
 #        - unzip
 #        - git
 #    - role: autologin
-#    - role: resize-desktop
-#      resolution: 1920x1080
     - role: chrome
