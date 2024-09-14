@@ -7,11 +7,11 @@
     autoremove: yes
     purge: yes
     update_cache: yes
-  loop: "{{ cleanup-apps-apt }}"
+  loop: "{{ cleanup_apps_apt }}"
 
 - name: "uninstall packages with snap"
   become: yes
   snap:
     name: "{{ item }}"
     state: "absent"
-  loop: "{{ cleanup-apps-snap }}"
+  loop: "{{ cleanup_apps_snap }}"

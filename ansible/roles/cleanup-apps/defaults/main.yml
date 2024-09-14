@@ -1,6 +1,6 @@
 ---
 # all apps to remove with apt
-cleanup-apps-apt:
+cleanup_apps_apt:
   - deja-dup*
   - eog*
   - file-roller
@@ -18,6 +18,6 @@ cleanup-apps-apt:
   - usb-creator-gtk
 
 # all apps to remove with snap
-cleanup-apps-snap:
+cleanup_apps_snap:
   - firefox
   - thunderbird

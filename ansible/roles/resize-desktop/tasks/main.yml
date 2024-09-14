@@ -1,24 +1,35 @@
 ---
-- name: "replace width of screen resolution"
-  replace:
-    path: "~/.config/monitors.xml"
-    regexp: "<width>\\d*<\/width>"
-    replace: "<width>{{ resize_desktop_width }}<\/width>"
+- name: "find files in hidden directory .config"
+  become: yes
+  find:
+    hidden: yes
+    recurse: true
+    paths: "/home/vagrant/"
+    patterns:
+      - xdg-terminals.list
+  register: find_hidden
 
-- name: "replace height of screen resolution"
-  replace:
-    path: "~/.config/monitors.xml"
-    regexp: "<height>\\d*<\/height>"
-    replace: "<height>{{ resize_desktop_height }}<\/height>"
+- name: "show find_hidden"
+  debug:
+    msg: "could not change screen resolution, try it again with `--provision`"
+  when: find_hidden.matched == 0
 
-- name: "replace rate of screen resolution"
-  replace:
-    path: "~/.config/monitors.xml"
-    regexp: "<rate>\\d*<\/rate>"
-    replace: "<rate>{{ resize_desktop_rate }}<\/rate>"
+- name: "copy monitors template"
+  become: yes
+  template:
+    src: "monitors.j2"
+    dest: "/home/vagrant/.config/monitors.xml"
+    owner: "vagrant"
+    group: "vagrant"
+    mode: "0664"
+  when: find_hidden.matched >= 1
 
 - name: "copy monitors.xml"
   become: yes
   copy:
-    src: "~/.config/monitors.xml"
+    src: "/home/vagrant/.config/monitors.xml"
     dest: "/var/lib/gdm3/.config/monitors.xml"
+    owner: "gdm"
+    group: "gdm"
+    mode: "0664"
+  when: find_hidden.matched >= 1

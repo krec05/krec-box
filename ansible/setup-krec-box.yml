@@ -8,10 +8,11 @@
     - role: locale-de
     - role: keyboard-layout-de
     - role: timezone-berlin
-#    - role: resize-desktop
-#      resolution: 1920x1080
-    - role: autologin
     - role: disable-lock-screen
+    - role: autologin
+    - role: chrome # TODO es fehlt noch das Icon in der Taskleiste
+    - role: resize-desktop
+      resolution: 1920x1080
 #    - role: snap-install-items
 #      packages:
 #        - software-properties-common
@@ -19,4 +20,3 @@
 #        - curl
 #        - unzip
 #        - git
-    - role: chrome # TODO es fehlt noch das Icon in der Taskleiste
