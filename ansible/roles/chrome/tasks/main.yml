@@ -14,4 +14,7 @@
     become: yes
     apt:
       deb: "/tmp/{{ chrome_temp_file }}"
+
+  - name: "pin chrome as favorite to dash"
+    command: gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'google-chrome.desktop']"
   when: not installDirChrome.stat.exists

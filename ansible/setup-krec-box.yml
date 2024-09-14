@@ -10,7 +10,7 @@
     - role: timezone-berlin
     - role: disable-lock-screen
     - role: autologin
-    - role: chrome # TODO es fehlt noch das Icon in der Taskleiste
+    - role: chrome
     - role: resize-desktop
       resolution: 1920x1080
 #    - role: snap-install-items
