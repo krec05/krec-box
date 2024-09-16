@@ -15,6 +15,19 @@
     apt:
       deb: "/tmp/{{ chrome_temp_file }}"
 
-  - name: "pin chrome as favorite to dash"
-    command: gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'google-chrome.desktop']"
+  - name: "copy pinnedChrome.sh"
+    copy:
+      src: "pinnedChrome.sh"
+      dest: "/home/vagrant/pinnedChrome.sh"
+      owner: "vagrant"
+      group: "vagrant"
+      mode: "777"
+
+  - name: "execute pinnedChrome.sh"
+    command: "/home/vagrant/pinnedChrome.sh"
+
+  - name: "delete pinnedChrome.sh"
+    file:
+      path: "/home/vagrant/pinnedChrome.sh"
+      state: absent
   when: not installDirChrome.stat.exists
