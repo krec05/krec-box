@@ -1,0 +1,9 @@
+---
+- name: "check plugin {{ plugin.plugin_dir }} already is present"
+  stat:
+    path: "{{ intellij_idea_plugin_path }}/{{ product_info.dataDirectoryName }}/{{ plugin.plugin_dir }}"
+  register: pluginDirIntelliJ
+
+- name: "install IntelliJ Plugin {{ plugin.plugin_dir }}"
+  command: "{{ intellij_idea_shell_path }} installPlugins {{ plugin.plugin_id }}"
+  when: not pluginDirIntelliJ.stat.exists

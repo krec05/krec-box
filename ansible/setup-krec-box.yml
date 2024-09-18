@@ -13,10 +13,11 @@
     - role: chrome
     - role: resize-desktop
       resolution: 1920x1080
-#    - role: snap-install-items
-#      packages:
-#        - software-properties-common
-#        - vim
-#        - curl
-#        - unzip
-#        - git
+    - role: apt-install-items
+      packages:
+        - git
+        - unzip
+        - curl
+        - default-jdk
+    - role: intellij-community
+      tags: develop

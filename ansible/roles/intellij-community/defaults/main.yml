@@ -1,0 +1,8 @@
+---
+intellij_target_dir: /snap/intellij-idea-community
+intellij_snap_package_name: intellij-idea-community
+intellij_idea_shell_path: /snap/intellij-idea-community/current/bin/idea.sh
+intellij_idea_setting_path: /home/vagrant/.config/JetBrains
+intellij_idea_plugin_path: /home/vagrant/.local/share/JetBrains
+intellij_idea_plugins:
+  - { plugin_id: ir.msdehghan.plugins.ansible, plugin_dir: AnsiblePlugin }

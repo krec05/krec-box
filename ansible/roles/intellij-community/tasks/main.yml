@@ -1,0 +1,54 @@
+---
+- name: "check IntelliJ already is present"
+  stat:
+    path: "{{ intellij_target_dir }}"
+  register: installDirIntelliJ
+
+- block:
+    - name: "install IntelliJ"
+      become: yes
+      snap:
+        state: "present"
+        name: "{{ intellij_snap_package_name }}"
+        classic: yes
+
+    - name: "copy pinnedIntelliJ.sh"
+      copy:
+        src: "pinnedIntelliJ.sh"
+        dest: "/home/vagrant/pinnedIntelliJ.sh"
+        owner: "vagrant"
+        group: "vagrant"
+        mode: "777"
+
+    - name: "execute pinnedIntelliJ.sh"
+      command: "/home/vagrant/pinnedIntelliJ.sh"
+
+    - name: "delete pinnedIntelliJ.sh"
+      file:
+        path: "/home/vagrant/pinnedIntelliJ.sh"
+        state: absent
+  when: not installDirIntelliJ.stat.exists
+
+- name: "refresh IntelliJ"
+  become: yes
+  command: "snap refresh {{ intellij_snap_package_name }}"
+  when: installDirIntelliJ.stat.exists
+
+- name: "debug json"
+  debug:
+    msg: "{{ product_info.dataDirectoryName }}"
+
+- name: "loop plugins"
+  include_tasks: plugins.yml
+  loop: "{{ intellij_idea_plugins }}"
+  loop_control:
+    loop_var: plugin
+
+- name: "unzip and copy IntelliJ Setting"
+  unarchive:
+    src: "settings.zip"
+    dest: "{{ intellij_idea_setting_path }}/{{ product_info.dataDirectoryName }}"
+
+- name: "debug json for settings"
+  debug:
+    msg: "{{ intellij_idea_setting_path }}/{{ product_info.dataDirectoryName }}"

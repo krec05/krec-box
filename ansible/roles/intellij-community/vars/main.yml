@@ -1,0 +1,1 @@
+product_info: "{{ lookup('file', '/snap/intellij-idea-community/current/product-info.json') | from_json }}"
