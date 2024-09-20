@@ -12,7 +12,6 @@
     - role: autologin
     - role: chrome
     - role: resize-desktop
-      resolution: 1920x1080
     - role: apt-install-items
       packages:
         - git
@@ -20,4 +19,3 @@
         - curl
         - default-jdk
     - role: intellij-community
-      tags: develop
