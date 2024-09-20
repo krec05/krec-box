@@ -1,7 +1,0 @@
----
-- name: "uninstall packages {{ packages}} with snap"
-  become: yes
-  snap:
-    name: "{{ packages }}"
-    state: absent
-    classic: yes

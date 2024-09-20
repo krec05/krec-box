@@ -1,9 +1,0 @@
----
-- name: "uninstall package {{ packages }} with apt"
-  become: yes
-  apt:
-    name: "{{ packages }}"
-    state: absent
-    autoremove: yes
-    purge: yes
-    update_cache: yes
